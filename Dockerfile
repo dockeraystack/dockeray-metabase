@@ -16,13 +16,12 @@
 
 FROM metabase/metabase:v0.42.0
 
+ARG TARGETARCH
 
-ENV DOCKERIZE_VERSION v0.6.1
+COPY dockerize-linux-$TARGETARCH-v0.6.1.tar.gz /tmp/dockerize.tar.gz
 
-RUN apk update \
-    && apk add --update wget \
-    && wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
-    && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
-    && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+RUN tar -C /usr/local/bin -xzvf /tmp/dockerize.tar.gz \
+    && rm /tmp/dockerize.tar.gz \
+    && rm -rf /tmp/* /var/cache/apk/* 
 
 ENTRYPOINT ["/app/run_metabase.sh"]
