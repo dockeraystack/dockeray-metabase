@@ -25,7 +25,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-reco
     apt-get autoremove -y && apt-get autoclean && \
     rm -rf /var/lib/apt/lists/* && \
     # providing permissions to the nobody user
-    curl https://downloads.metabase.com/v0.42.0/metabase.jar -o metabase.jar && \
+    curl https://downloads.metabase.com/v0.44.4/metabase.jar -o metabase.jar && \
     curl https://raw.githubusercontent.com/metabase/metabase/master/bin/docker/run_metabase.sh -o run_metabase.sh && \
     chmod +x run_metabase.sh && \
     chown -R nobody:nogroup /app
