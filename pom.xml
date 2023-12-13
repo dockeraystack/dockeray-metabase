@@ -20,7 +20,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.dockeraystack</groupId>
   <artifactId>dockeray-metabase</artifactId>
-  <version>0.44.4-2.0.0</version>
+  <version>0.47.9-2.1.0</version>
   <name>Dockeray :: Metabase</name>
   <inceptionYear>2022</inceptionYear>
   <organization>
